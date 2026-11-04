@@ -1,1 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Meet the student team behind our Charleston RiverDogs business project, from tickets and merchandise to marketing and game-day operations.">
+  <title>About Us &amp; Contact | Charleston RiverDogs</title>
 
+  <!-- Internal stylesheet: all CSS is included here. -->
+  <style>
+    :root {
+      --navy: #102b45;
+      --red: #b52c32;
+      --cream: #f6f3eb;
+      --ink: #243747;
+      --muted: #526473;
+      --line: #dcded9;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--red);
+      text-underline-offset: 4px;
+    }
+
+    a:hover {
+      text-decoration-thickness: 2px;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid #db9e34;
+      outline-offset: 5px;
+    }
+
+    .wrap {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    .skip {
+      position: absolute;
+      left: 10px;
+      top: -100px;
+      padding: 12px;
+      background: white;
+      z-index: 5;
+    }
+
+    .skip:focus {
+      top: 10px;
+    }
+
+    .project-note {
+      background: var(--navy);
+      color: white;
+      padding: 8px 5%;
+      text-align: center;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+    }
+
+    header {
+      background: #fffdf8;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 22px 0;
+    }
+
+    .brand {
+      color: var(--navy);
+      text-decoration: none;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .baseball {
+      border: 2px solid var(--red);
+      color: var(--red);
+      border-radius: 50%;
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .brand strong {
+      display: block;
+      font-size: 1.15rem;
+      line-height: 1.2;
+      letter-spacing: 0.05em;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.73rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+    }
+
+    nav a {
+      font-size: 0.88rem;
+      font-weight: bold;
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      color: var(--red);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--navy);
+      color: white;
+      padding: 76px 0 70px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -110px;
+      top: -150px;
+      width: 510px;
+      height: 510px;
+      border: 2px dashed #ffffff23;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: block;
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.75rem;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .hero .eyebrow {
+      color: #f1bd87;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1,
+    h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.12;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 6vw, 4.7rem);
+      max-width: 780px;
+      margin-bottom: 22px;
+      letter-spacing: -0.04em;
+    }
+
+    .hero p {
+      max-width: 610px;
+      color: #e0e7ec;
+      font-size: 1.08rem;
+      margin-bottom: 28px;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--red);
+      color: white;
+      padding: 12px 22px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    section {
+      padding: 62px 0;
+      scroll-margin-top: 20px;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      margin-bottom: 20px;
+      color: var(--navy);
+    }
+
+    h3 {
+      color: var(--navy);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .story-grid p:last-child {
+      margin-bottom: 0;
+    }
+
+    .scorecard {
+      background: #fffdf8;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-top: 5px solid var(--red);
+    }
+
+    .scorecard h3 {
+      font-family: Georgia, serif;
+      font-size: 1.5rem;
+    }
+
+    .scorecard ol {
+      margin: 18px 0 0;
+      padding-left: 22px;
+    }
+
+    .scorecard li {
+      padding: 9px 0 9px 7px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .scorecard li:last-child {
+      border: 0;
+    }
+
+    .team-section {
+      background: #fffdf8;
+      border-block: 1px solid var(--line);
+    }
+
+    .intro {
+      max-width: 640px;
+      color: var(--muted);
+      margin-bottom: 30px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .person {
+      background: var(--cream);
+      border: 1px solid var(--line);
+      padding: 28px;
+      border-radius: 6px;
+    }
+
+    .role-icon {
+      display: grid;
+      place-items: center;
+      width: 66px;
+      height: 66px;
+      background: var(--navy);
+      color: white;
+      border-radius: 50%;
+      margin-bottom: 24px;
+    }
+
+    .role-icon svg {
+      width: 34px;
+      height: 34px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .person h3 {
+      font-size: 1.5rem;
+    }
+
+    .role {
+      display: block;
+      color: var(--red);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+
+    .person p {
+      margin-bottom: 0;
+      font-size: 0.95rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 54px;
+    }
+
+    address {
+      font-style: normal;
+    }
+
+    .contact-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 26px;
+    }
+
+    .contact-list h3 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .contact-list p {
+      margin: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .mock-note {
+      color: var(--muted);
+      font-size: 0.83rem;
+      margin-top: 22px;
+    }
+
+    .hours {
+      background: var(--navy);
+      color: white;
+      padding: 30px;
+      border-radius: 6px;
+    }
+
+    .hours h3 {
+      color: white;
+      font-family: Georgia, serif;
+      font-size: 1.6rem;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      margin-top: 18px;
+    }
+
+    th,
+    td {
+      padding: 13px 0;
+      text-align: left;
+      border-bottom: 1px solid #ffffff30;
+      vertical-align: top;
+    }
+
+    th {
+      font-weight: normal;
+      padding-right: 18px;
+    }
+
+    .hours p {
+      color: #d2dce4;
+      font-size: 0.8rem;
+      margin: 18px 0 0;
+    }
+
+    .faq {
+      padding-top: 0;
+    }
+
+    .faq-list {
+      background: #fffdf8;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 0 26px;
+    }
+
+    details {
+      border-bottom: 1px solid var(--line);
+      padding: 20px 0;
+    }
+
+    details:last-child {
+      border: 0;
+    }
+
+    summary {
+      font-weight: bold;
+      cursor: pointer;
+      color: var(--navy);
+    }
+
+    details p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      max-width: 860px;
+    }
+
+    footer {
+      background: var(--navy);
+      color: #d2dce4;
+      padding: 26px 0;
+      font-size: 0.8rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    footer a {
+      color: white;
+    }
+
+    /* Responsive layout for tablets and phones */
+    @media (max-width: 760px) {
+      .header-inner,
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        gap: 16px;
+      }
+
+      .hero {
+        padding: 50px 0;
+      }
+
+      .story-grid,
+      .team-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 26px;
+      }
+
+      section {
+        padding: 42px 0;
+      }
+
+      .contact-list {
+        gap: 22px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .contact-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="project-note">
+    A FICTIONAL STUDENT PROJECT INSPIRED BY THE CHARLESTON RIVERDOGS
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="wrap header-inner">
+      <a class="brand" href="#top"
+         aria-label="Charleston RiverDogs project, top of page">
+        <span class="baseball" aria-hidden="true">⚾</span>
+        <span>
+          <strong>RIVERDOGS</strong>
+          <small>Baseball · Community · Charleston</small>
+        </span>
+      </a>
+
+      <nav aria-label="Page sections">
+        <a href="#story">Our Story</a>
+        <a href="#team">The Team</a>
+        <a href="#contact">Contact &amp; Hours</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Introduction -->
+    <div class="hero">
+      <div class="wrap">
+        <span class="eyebrow">About Us &amp; Contact / Page 03</span>
+        <h1>Our team behind<br>your game day.</h1>
+
+        <p>
+          Baseball brings us together. Our Charleston RiverDogs project
+          brings the business behind it to life—from tickets and team gear
+          to memorable nights at the ballpark.
+        </p>
+
+        <a class="button" href="#team">
+          Meet our starting lineup &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Origin Story -->
+    <section id="story">
+      <div class="wrap story-grid">
+        <div>
+          <span class="eyebrow">01 / Our Origin Story</span>
+          <h2>Three friends. One team. A Charleston tradition.</h2>
+
+          <p>
+            In our fictional version of the Charleston RiverDogs’ beginnings,
+            Sarah, Megan, and Eric shared a dream: to create a baseball team
+            that would bring Charleston together. While tossing a baseball
+            around one afternoon, they imagined a ballpark filled with
+            cheering families, proud local fans, and summer nights that
+            people would remember long after the final out. They decided to
+            turn that idea into the Charleston RiverDogs, a team built around
+            exciting baseball and a strong connection to its community.
+          </p>
+
+          <p>
+            Each founder brought a different skill to getting the team off
+            the ground. Sarah, the Data Analyst, studied potential attendance,
+            ticket prices, and costs to help shape a realistic business plan.
+            Megan, in the IT Department, built the team’s digital presence so
+            fans could discover the RiverDogs, find game information, and
+            explore ticket and merchandise options. Eric, in Business
+            Operations, organized budgets, coordinated staffing, and
+            developed marketing and funding plans to help bring their first
+            season to life.
+          </p>
+
+          <p>
+            Together, they built more than a place to watch baseball: they
+            created a business centered on the fans. Today, in our project,
+            Sarah, Megan, and Eric work together on ticket sales, merchandise,
+            technology, financial planning, and game-day operations. From
+            promoting the next home game to improving concession ordering,
+            their mission remains the same: give Charleston a team to cheer
+            for and an experience worth coming back for.
+          </p>
+        </div>
+
+        <aside class="scorecard"
+               aria-label="Our baseball business priorities">
+          <span class="eyebrow">Our Game Plan</span>
+          <h3>A winning team, on and off the field.</h3>
+
+          <ol>
+            <li>
+              <strong>Connect with fans.</strong><br>
+              Promote games, support ticket sales, and build community
+              connections.
+            </li>
+
+            <li>
+              <strong>Run the business.</strong><br>
+              Coordinate budgets, technology, merchandise, and daily operations.
+            </li>
+
+            <li>
+              <strong>Make game day memorable.</strong><br>
+              Improve service and give fans reasons to come back.
+            </li>
+          </ol>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Meet the Founders -->
+    <section class="team-section" id="team">
+      <div class="wrap">
+        <span class="eyebrow">02 / Meet the Founders</span>
+        <h2>Three roles. One winning experience.</h2>
+
+        <p class="intro">
+          Our student founders bring different skills to the same mission:
+          supporting the RiverDogs business and creating an enjoyable
+          experience for every fan.
+        </p>
+
+        <div class="team-grid">
+          <!-- Sarah -->
+          <article class="person">
+            <div class="role-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40">
+                <path d="M6 6v28h29M12 27v-8h5v8M22 27V13h5v14M10 13l9-5 8 2 7-6"/>
+              </svg>
+            </div>
+
+            <h3>Sarah</h3>
+            <span class="role">Data Analyst</span>
+
+            <p>
+              Sarah turns business data into better decisions. She analyzes
+              ticket sales, attendance, merchandise trends, marketing results,
+              and financial performance to help the team forecast demand,
+              evaluate opportunities, and understand what fans enjoy.
+            </p>
+          </article>
+
+          <!-- Megan -->
+          <article class="person">
+            <div class="role-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40">
+                <rect x="5" y="7" width="30" height="22" rx="2"/>
+                <path d="M15 35h10M20 29v6M16 14l-5 4 5 4M24 14l5 4-5 4"/>
+              </svg>
+            </div>
+
+            <h3>Megan</h3>
+            <span class="role">IT Department</span>
+
+            <p>
+              Megan manages the technology that connects fans with the team.
+              She maintains the website and app, supports online ticketing
+              and merchandise systems, and troubleshoots technical issues.
+              She also helps develop digital improvements, including the
+              proposed concession portal.
+            </p>
+          </article>
+
+          <!-- Eric -->
+          <article class="person">
+            <div class="role-icon" aria-hidden="true">
+              <svg viewBox="0 0 40 40">
+                <rect x="5" y="12" width="30" height="22" rx="2"/>
+                <path d="M14 12V6h12v6M5 22h30M17 20v5h6v-5"/>
+              </svg>
+            </div>
+
+            <h3>Eric</h3>
+            <span class="role">Business Operations</span>
+
+            <p>
+              Eric oversees the business side of the ballpark. He coordinates
+              daily operations, staffing, budgets, inventory, and marketing
+              plans while contributing to financial planning, funding, and
+              investment decisions that support the organization’s goals.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Information and Hours -->
+    <section id="contact">
+      <div class="wrap contact-grid">
+        <div>
+          <span class="eyebrow">03 / Get in Touch</span>
+          <h2>Let’s talk ballpark business.</h2>
+
+          <p>
+            Have a question about tickets, merchandise, group outings, or our
+            business project? Want to share a game-day idea? Here’s where you
+            would find our team.
+          </p>
+
+          <address class="contact-list">
+            <div>
+              <h3>Email</h3>
+              <p>
+                <a href="mailto:hello@charlestonriverdogs.example">
+                  hello@charlestonriverdogs.example
+                </a>
+              </p>
+            </div>
+
+            <div>
+              <h3>Phone</h3>
+              <p>(843) 555-0148</p>
+            </div>
+
+            <div>
+              <h3>Find Us</h3>
+              <p>
+                RiverDogs Business Project Office<br>
+                Campus Innovation Center, Room 103<br>
+                Charleston, SC
+              </p>
+            </div>
+
+            <div>
+              <h3>Social Media</h3>
+              <p>
+                Instagram: @RiverDogsProject<br>
+                TikTok: @RiverDogsGameDay<br>
+                Facebook: Charleston RiverDogs Project
+              </p>
+            </div>
+          </address>
+
+          <p class="mock-note">
+            All contact information, social handles, and office details are
+            fictional examples for this class project.
+          </p>
+        </div>
+
+        <aside class="hours" aria-labelledby="hours-title">
+          <h3 id="hours-title">Our pretend office hours</h3>
+
+          <table aria-label="Fictional hours of operation">
+            <tbody>
+              <tr>
+                <th scope="row">Monday–Friday</th>
+                <td>10:00 a.m.–5:00 p.m.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">Saturday</th>
+                <td>11:00 a.m.–3:00 p.m.</td>
+              </tr>
+
+              <tr>
+                <th scope="row">Sunday</th>
+                <td>Closed, unless it’s game day!</td>
+              </tr>
+
+              <tr>
+                <th scope="row">Home game support</th>
+                <td>Gates open through the final out</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p>
+            These fictional hours cover our business office, ticket
+            assistance, and merchandise inquiries. Game-day support would
+            be available while the ballpark is open.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Frequently Asked Questions -->
+    <section class="faq" id="faq">
+      <div class="wrap">
+        <span class="eyebrow">04 / The Fan FAQ</span>
+        <h2>A few questions from the stands.</h2>
+
+        <div class="faq-list">
+          <details>
+            <summary>What does your team do behind the scenes?</summary>
+            <p>
+              Our project covers the business of baseball: ticket sales,
+              marketing, merchandise, technology, daily operations, and
+              financial planning. Sarah handles data analysis, Megan manages
+              IT, and Eric coordinates business operations.
+            </p>
+          </details>
+
+          <details>
+            <summary>Can we plan a group night at the ballpark?</summary>
+            <p>
+              In our fictional business, absolutely! Families, student
+              organizations, and local businesses could contact our office to
+              discuss group seating and a night cheering together. Matching
+              outfits are optional; enthusiastic cheering is encouraged.
+            </p>
+          </details>
+
+          <details>
+            <summary>Where would I find tickets and team merchandise?</summary>
+            <p>
+              Our project envisions a team website and app where fans can
+              explore ticket options and shop for RiverDogs gear, along
+              with in-person assistance during posted hours. This About Us
+              page is a demonstration and does not process purchases.
+            </p>
+          </details>
+
+          <details>
+            <summary>Are you working on any game-day improvements?</summary>
+            <p>
+              Yes! One proposal is a QR-code concession portal where fans
+              could order food, track its progress, and receive a pickup
+              notification. In-person ordering would remain available. This
+              supports our wider goal of improving the entire ballpark
+              experience.
+            </p>
+          </details>
+
+          <details>
+            <summary>Do I have to know every baseball rule to have fun?</summary>
+            <p>
+              Only if you are volunteering to umpire! Our fictional business
+              welcomes longtime fans and first-time visitors alike. Come for
+              the baseball, the company, or an excuse to wear your favorite
+              team gear.
+            </p>
+          </details>
+
+          <details>
+            <summary>Is this an official Charleston RiverDogs website?</summary>
+            <p>
+              This is a fictional student business project inspired by the
+              Charleston RiverDogs. The founding story, staff roles, contact
+              information, and hours were created for the assignment.
+              This page does not accept real purchases or bookings.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap footer-inner">
+      <p>
+        &copy; 2026 Charleston RiverDogs Project · Sarah, Megan &amp; Eric<br>
+        Fictional class project. Not affiliated with the Charleston RiverDogs.
+      </p>
+
+      <a href="#top">Back to the top &uarr;</a>
+    </div>
+  </footer>
+</body>
+</html>
